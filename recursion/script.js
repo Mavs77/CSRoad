@@ -45,10 +45,88 @@ console.log("test")
 // }
 
 
-function recursiveSummation(inputNumber) {
-    if (inputNumber <= 1) 
-        return inputNumber; 
-    return inputNumber + recursiveSummation(inputNumber - 1); 
+// function recursiveSummation(inputNumber) {
+//     if (inputNumber <= 1) 
+//         return inputNumber; 
+//     return inputNumber + recursiveSummation(inputNumber - 1); 
+// }
+
+// console.log("result:", recursiveSummation(31))
+
+// function binarySearch(arr, target, left = 0, right = arr.length -1) {
+//     //Base case: If the range is invalid, the target is not in the array
+//     if (left > right) {
+//         return -1; // Target not found
+//     }
+
+//     // Find the middle index
+//     const mid = Math.floor((left + right) / 2); 
+
+//     // Check if the middle element is the target
+//     if (arr[mid] === target) {
+//         return mid; //Target found, return its index
+//     }
+
+//     // Recursive case: Search in the left or right half
+//     if(arr[mid] > target) {
+//         return binarySearch(arr, target, left, mid - 1); // Search left half
+//     } else {
+//         return binarySearch(arr, target, mid + 1, right); // Search right half
+//     }
+// }
+
+// // Example usage:
+// const numbers = [1, 3, 5, 7, 9, 11, 13];
+// const target = 7;
+// const result = binarySearch(numbers, target);
+
+// if (result !== -1) {
+//     console.log(`Target found at index: ${result}`);
+// } else {
+//     console.log("Target not found in the array.");
+// }
+
+// // when searching through an array, valid indexes range from 0 to the array's length minus one. [-1] is not a valid index in JS arrays for accessing elements (though its sometimes used for other purposes). Returning [-1] is a common convention in programming to indicate failure or absence of a value. 
+
+// function binarySearch(arr, target, left = 0, right = arr.length - 1) {
+//     if (left > right) {
+//         return -1; // Target not found
+//     }
+
+//     const mid = Math.floor((left + right) / 2);
+
+//     if (arr[mid] === target) {
+//         return mid; // Target found
+//     }
+
+//     if (arr[mid] > target) {
+//         return binarySearch(arr, target, left, mid - 1); // Search left half
+//     } else {
+//         return binarySearch(arr, target, mid + 1, right); // Search right half
+//     }
+// }
+
+// function searchInUnsortedArray(unsortedArr, target) {
+//     const sortedArr = [...unsortedArr].sort((a, b) => a - b); // Sort the array
+//     const result = binarySearch(sortedArr, target);
+//     return result !== -1
+//         ? `Target found at index ${result} in sorted array`
+//         : "Target not found.";
+// }
+
+// // Example usage:
+// const numbers = [23, 5, 7, 3, 17, 11, 19];
+// const target = 7;
+
+// console.log(searchInUnsortedArray(numbers, target));
+
+
+function fibonacci (n) {
+    if (n <= 1) {
+        return n; // Base case 
+    }
+
+    return fibonacci(n-1) + fibonacci(n-2); // recursive case
 }
 
-console.log("result:", recursiveSummation(31))
+console.log(fibonacci(6));
