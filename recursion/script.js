@@ -45,13 +45,13 @@ console.log("test")
 // }
 
 
-function recursiveSummation(inputNumber) {
-    if (inputNumber <= 1) 
-        return inputNumber; 
-    return inputNumber + recursiveSummation(inputNumber - 1); 
-}
+// function recursiveSummation(inputNumber) {
+//     if (inputNumber <= 1) 
+//         return inputNumber; 
+//     return inputNumber + recursiveSummation(inputNumber - 1); 
+// }
 
-console.log("result:", recursiveSummation(3))
+// console.log("result:", recursiveSummation(3))
 
 // function binarySearch(arr, target, left = 0, right = arr.length -1) {
 //     //Base case: If the range is invalid, the target is not in the array
@@ -130,3 +130,63 @@ console.log("result:", recursiveSummation(3))
 // }
 
 // console.log(fibonacci(5));
+
+
+// function power (base, exponent) {
+//     if (exponent === 0) {
+//         return 1 
+//     } 
+//     return base * power(base, exponent - 1); 
+// }
+
+// console.log(power(2,4))
+
+
+// function factorial (number) {
+//     if (number === 1) {
+//         return 1; 
+//     }
+
+//     return number * factorial(number - 1); 
+// }
+
+// let number = 6; 
+
+// // console.log('factorial result:', factorial(number))
+
+// console.log(`The factorial of ${number} is ${factorial(number)}`)
+
+// function all(array, callback) {
+//     //Base case: if the array is empty, return true (no elements failed the test)
+//     if (array.length === 0) {
+//         return true; 
+//     }
+
+//     //Check the first element
+//     if(!callback(array[0])) {
+//         return false; // If the first element fails, return false
+//     }
+
+//     //Recursive call: check the rest of the array
+//     return all(array.slice(1), callback); 
+// }
+
+// //example usage: 
+
+// const isEven = (num) => num < 7; 
+
+// console.log(all([2,4,8], isEven))
+
+function productOfArray(array) {
+    if (array.length === 0) {
+        return 1; 
+    }
+
+    // if (array.length === 1 && array[0] === 1) {
+    //     return 1; 
+    // }
+
+    return array[0] * productOfArray(array.slice(1)); 
+}
+
+console.log(productOfArray([1,2,3,10]))
