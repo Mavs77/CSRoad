@@ -45,13 +45,13 @@ console.log("test")
 // }
 
 
-// function recursiveSummation(inputNumber) {
-//     if (inputNumber <= 1) 
-//         return inputNumber; 
-//     return inputNumber + recursiveSummation(inputNumber - 1); 
-// }
+function recursiveSummation(inputNumber) {
+    if (inputNumber <= 1) 
+        return inputNumber; 
+    return inputNumber + recursiveSummation(inputNumber - 1); 
+}
 
-// console.log("result:", recursiveSummation(31))
+console.log("result:", recursiveSummation(3))
 
 // function binarySearch(arr, target, left = 0, right = arr.length -1) {
 //     //Base case: If the range is invalid, the target is not in the array
@@ -121,12 +121,12 @@ console.log("test")
 // console.log(searchInUnsortedArray(numbers, target));
 
 
-function fibonacci (n) {
-    if (n <= 1) {
-        return n; // Base case 
-    }
+// function fibonacci (n) {
+//     if (n <= 1) {
+//         return n; // Base case 
+//     }
 
-    return fibonacci(n-1) + fibonacci(n-2); // recursive case
-}
+//     return fibonacci(n-1) + fibonacci(n-2); // recursive case
+// }
 
-console.log(fibonacci(6));
+// console.log(fibonacci(5));
