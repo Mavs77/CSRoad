@@ -214,22 +214,43 @@ console.log("test")
 //     return false; // Return false if the value is not found anywhere
 // }
 
-function countIntegers(array) {
-    let count = 0;
+// function countIntegers(array) {
+//     let count = 0;
+
+//     for (const element of array) {
+//         if (Array.isArray(element)) {
+//             // Recursive call for nested arrays
+//             count += countIntegers(element);
+//         } else if (Number.isInteger(element)) {
+//             // Increment count if element is an integer
+//             count += 1;
+//         }
+//     }
+
+//     return count;
+// }
+
+// const arr1 = [[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]
+
+// console.log(countIntegers(arr1)); 
+
+function sumSquares (array) {
+    let sum = 0; 
 
     for (const element of array) {
         if (Array.isArray(element)) {
-            // Recursive call for nested arrays
-            count += countIntegers(element);
+            sum += sumSquares(element)
         } else if (Number.isInteger(element)) {
-            // Increment count if element is an integer
-            count += 1;
+            sum +=  element ** 2;
         }
     }
 
-    return count;
+    return sum; //explicity return the sum. In JS, a function that doesn't explicitly return a value will return undefined by default; 
 }
 
-const arr1 = [[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]
+let list = [1,2,3]; 
 
-console.log(countIntegers(arr1)); 
+console.log(sumSquares(list))
+
+let nestedList = [10,[[10],10],[10]] ;
+console.log(sumSquares(nestedList)); 
