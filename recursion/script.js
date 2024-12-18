@@ -177,16 +177,59 @@ console.log("test")
 
 // console.log(all([2,4,8], isEven))
 
-function productOfArray(array) {
-    if (array.length === 0) {
-        return 1; 
+// function productOfArray(array) {
+//     if (array.length === 0) {
+//         return 1; 
+//     }
+
+//     // if (array.length === 1 && array[0] === 1) {
+//     //     return 1; 
+//     // }
+
+//     return array[0] * productOfArray(array.slice(1)); 
+// }
+
+// console.log(productOfArray([1,2,3,10]))
+
+
+// function contains(object, value) {
+//     // Check if the value is directly at any property
+//     // This is a for...in loop that iterates over all the keys (properties) in the object.
+//     for (const key in object) {
+//         //this checks if the key is a direct property of the object, not inherited from its prototype
+//         if (object.hasOwnProperty(key)) {
+//             //access the value of the current key with object[key] and compares it to the value using === (strict equality, which checks both value and type)
+//             if (object[key] === value) {
+//                 return true; // Return true if value is found
+//             }
+
+//             // If the value is an object, recursively search for it
+//             if (typeof object[key] === 'object' && object[key] !== null) {
+//                 if (contains(object[key], value)) {
+//                     return true; // Return true if found in nested object
+//                 }
+//             }
+//         }
+//     }
+//     return false; // Return false if the value is not found anywhere
+// }
+
+function countIntegers(array) {
+    let count = 0;
+
+    for (const element of array) {
+        if (Array.isArray(element)) {
+            // Recursive call for nested arrays
+            count += countIntegers(element);
+        } else if (Number.isInteger(element)) {
+            // Increment count if element is an integer
+            count += 1;
+        }
     }
 
-    // if (array.length === 1 && array[0] === 1) {
-    //     return 1; 
-    // }
-
-    return array[0] * productOfArray(array.slice(1)); 
+    return count;
 }
 
-console.log(productOfArray([1,2,3,10]))
+const arr1 = [[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]
+
+console.log(countIntegers(arr1)); 
