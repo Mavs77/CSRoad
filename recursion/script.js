@@ -234,23 +234,135 @@ console.log("test")
 
 // console.log(countIntegers(arr1)); 
 
-function sumSquares (array) {
-    let sum = 0; 
+// function sumSquares (array) {
+//     let sum = 0; 
 
-    for (const element of array) {
-        if (Array.isArray(element)) {
-            sum += sumSquares(element)
-        } else if (Number.isInteger(element)) {
-            sum +=  element ** 2;
+//     for (const element of array) {
+//         if (Array.isArray(element)) {
+//             sum += sumSquares(element)
+//         } else if (Number.isInteger(element)) {
+//             sum +=  element ** 2;
+//         }
+//     }
+
+//     return sum; //explicity return the sum. In JS, a function that doesn't explicitly return a value will return undefined by default; 
+// }
+
+// let list = [1,2,3]; 
+
+// console.log(sumSquares(list))
+
+// let nestedList = [10,[[10],10],[10]] ;
+// console.log(sumSquares(nestedList)); 
+
+// function replicateArrayElements(times, input) {
+//     if (Array.isArray(input)) {
+//         // Recursively process each element of the array
+//         return input.map(element => replicateArrayElements(times, element));
+//     } else if (Number.isInteger(input)) {
+//         // If the input is a number, replicate it
+//         return Array(times).fill(input);
+//     } else {
+//         // Handle non-integer or non-array inputs if needed
+//         return null;
+//     }
+// }
+
+// // Example usage:
+// const result = replicateArrayElements(3, [5]);
+// console.log(result); 
+
+
+// function fibs(n) {
+//     if (n <= 0) return []; // Handle cases where n is 0 or negative
+//     if (n === 1) return [0]; // If only one number is requested, return [0]
+
+//     const result = [0, 1]; // Start with the first two Fibonacci numbers
+
+//     for (let i = 2; i < n; i++) {
+//         result.push(result[i - 1] + result[i - 2]); // Add the sum of the two previous numbers
+//     }
+
+//     return result; // Return the full sequence
+// }
+
+// // Example usage:
+// console.log(fibs(8)); // Output: [0, 1, 1, 2, 3, 5, 8, 13]
+
+
+// function fibsRec(n) {
+//     if (n <= 0) return []; // Handle cases where n is 0 or negative
+//     if (n === 1) return [0]; // Base case: return the first Fibonacci number
+//     if (n === 2) return [0, 1]; // Base case: return the first two Fibonacci numbers
+
+//     // Recursive step:
+//     const fibs = fibsRec(n - 1); // Get the Fibonacci sequence for n-1
+//     fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]); // Add the next number
+//     return fibs; // Return the updated sequence
+// }
+
+// // Example usage:
+// console.log(fibsRec(4)); 
+
+function mergeSort(array) {
+    // Base case: if the array has 1 or 0 elements, it is already sorted
+    if (array.length <= 1) {
+        return array;
+    }
+
+    // Step 1: Split the array into two halves
+    const mid = Math.floor(array.length / 2);
+    const left = array.slice(0, mid);
+    const right = array.slice(mid);
+
+    // Step 2: Recursively sort each half
+    const sortedLeft = mergeSort(left);
+    const sortedRight = mergeSort(right);
+
+    // Step 3: Merge the sorted halves
+    return merge(sortedLeft, sortedRight);
+}
+
+function merge(left, right) {
+    let result = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+
+    // Merge the two sorted arrays
+    // leftIndex < left.length ensures that we don't try to access an element beyond the end of the left array
+    // As long as both arrays (right & left) have elements left to compare, the loop keeps running. 
+    while (leftIndex < left.length && rightIndex < right.length) {
+        //this is the comparison between the current elements in the left and right arrays 
+        if (left[leftIndex] < right[rightIndex]) {
+            //if the element(s) in the left is smaller than the right, the algorithm will add it to the result array. 
+            result.push(left[leftIndex]);
+            //increment left index to move to the next element in the left array 
+            leftIndex++;
+        } else {
+            //if the condition is false, it means the element from the right array is smaller or equal to the element from the left array
+            result.push(right[rightIndex]);
+            rightIndex++;
         }
     }
 
-    return sum; //explicity return the sum. In JS, a function that doesn't explicitly return a value will return undefined by default; 
+    // If there are any remaining elements in left or right, append them
+    return result.concat(left.slice(leftIndex), right.slice(rightIndex));
 }
 
-let list = [1,2,3]; 
+console.log(mergeSort([3,2,1,13, 8, 5, 0,1]))
 
-console.log(sumSquares(list))
+function oddNumbersLessThanTen() {
+    let currentNumber = 1;
+  
+    while (currentNumber < 10) {
+      if (currentNumber % 2 !== 0) {
+        console.log(currentNumber);
+      }
+  
+      currentNumber += 1;
+    }
+  }
 
-let nestedList = [10,[[10],10],[10]] ;
-console.log(sumSquares(nestedList)); 
+ oddNumbersLessThanTen();  
+
+ 
