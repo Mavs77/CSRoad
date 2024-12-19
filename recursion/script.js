@@ -302,67 +302,77 @@ console.log("test")
 // }
 
 // // Example usage:
-// console.log(fibsRec(4)); 
+// // console.log(fibsRec(4)); 
 
-function mergeSort(array) {
-    // Base case: if the array has 1 or 0 elements, it is already sorted
-    if (array.length <= 1) {
-        return array;
-    }
+// function mergeSort(array) {
+//     // Base case: if the array has 1 or 0 elements, it is already sorted
+//     if (array.length <= 1) {
+//         return array;
+//     }
 
-    // Step 1: Split the array into two halves
-    const mid = Math.floor(array.length / 2);
-    const left = array.slice(0, mid);
-    const right = array.slice(mid);
+//     // Step 1: Split the array into two halves
+//     const mid = Math.floor(array.length / 2);
+//     const left = array.slice(0, mid);
+//     const right = array.slice(mid);
 
-    // Step 2: Recursively sort each half
-    const sortedLeft = mergeSort(left);
-    const sortedRight = mergeSort(right);
+//     // Step 2: Recursively sort each half
+//     const sortedLeft = mergeSort(left);
+//     const sortedRight = mergeSort(right);
 
-    // Step 3: Merge the sorted halves
-    return merge(sortedLeft, sortedRight);
-}
+//     // Step 3: Merge the sorted halves
+//     return merge(sortedLeft, sortedRight);
+// }
 
-function merge(left, right) {
-    let result = [];
-    let leftIndex = 0;
-    let rightIndex = 0;
+// function merge(left, right) {
+//     let result = [];
+//     let leftIndex = 0;
+//     let rightIndex = 0;
 
-    // Merge the two sorted arrays
-    // leftIndex < left.length ensures that we don't try to access an element beyond the end of the left array
-    // As long as both arrays (right & left) have elements left to compare, the loop keeps running. 
-    while (leftIndex < left.length && rightIndex < right.length) {
-        //this is the comparison between the current elements in the left and right arrays 
-        if (left[leftIndex] < right[rightIndex]) {
-            //if the element(s) in the left is smaller than the right, the algorithm will add it to the result array. 
-            result.push(left[leftIndex]);
-            //increment left index to move to the next element in the left array 
-            leftIndex++;
-        } else {
-            //if the condition is false, it means the element from the right array is smaller or equal to the element from the left array
-            result.push(right[rightIndex]);
-            rightIndex++;
+//     // Merge the two sorted arrays
+//     // leftIndex < left.length ensures that we don't try to access an element beyond the end of the left array
+//     // As long as both arrays (right & left) have elements left to compare, the loop keeps running. 
+//     while (leftIndex < left.length && rightIndex < right.length) {
+//         //this is the comparison between the current elements in the left and right arrays 
+//         if (left[leftIndex] < right[rightIndex]) {
+//             //if the element(s) in the left is smaller than the right, the algorithm will add it to the result array. 
+//             result.push(left[leftIndex]);
+//             //increment left index to move to the next element in the left array 
+//             leftIndex++;
+//         } else {
+//             //if the condition is false, it means the element from the right array is smaller or equal to the element from the left array
+//             result.push(right[rightIndex]);
+//             rightIndex++;
+//         }
+//     }
+
+//     // If there are any remaining elements in left or right, append them
+//     return result.concat(left.slice(leftIndex), right.slice(rightIndex));
+// }
+
+// console.log(mergeSort([3,2,1,13, 8, 5, 0,1]))
+
+// function oddNumbersLessThanTen() {
+//     let currentNumber = 1;
+  
+//     while (currentNumber < 10) {
+//       if (currentNumber % 2 !== 0) {
+//         console.log(currentNumber);
+//       }
+  
+//       currentNumber += 1;
+//     }
+//   }
+
+//  oddNumbersLessThanTen();  
+
+function printPairs(N) {
+    for (let i = 1; i <= N; i++) {
+        for (let j = 1; j <=N; j++) {
+            console.log(`(${i}, ${j})`)
         }
     }
-
-    // If there are any remaining elements in left or right, append them
-    return result.concat(left.slice(leftIndex), right.slice(rightIndex));
 }
 
-console.log(mergeSort([3,2,1,13, 8, 5, 0,1]))
-
-function oddNumbersLessThanTen() {
-    let currentNumber = 1;
-  
-    while (currentNumber < 10) {
-      if (currentNumber % 2 !== 0) {
-        console.log(currentNumber);
-      }
-  
-      currentNumber += 1;
-    }
-  }
-
- oddNumbersLessThanTen();  
+printPairs(5)
 
  
