@@ -365,14 +365,24 @@ console.log("test")
 
 //  oddNumbersLessThanTen();  
 
-function printPairs(N) {
-    for (let i = 1; i <= N; i++) {
-        for (let j = 1; j <=N; j++) {
-            console.log(`(${i}, ${j})`)
+// function printPairs(N) {
+//     for (let i = 1; i <= N; i++) {
+//         for (let j = 1; j <=N; j++) {
+//             console.log(`(${i}, ${j})`)
+//         }
+//     }
+// }
+
+function printStudentPairs(N) {
+    for (let i = 1; i <= N; i++) {           // Outer loop: Row (1 to N)
+        for (let j = 1; j <= N; j++) {       // Middle loop: Column (1 to N)
+            for (let k = 1; k <= N; k++) {   // Inner loop: Layer (1 to N)
+                console.log(`(${i}, ${j}, ${k})`); // Print the 3D pair
+            }
         }
     }
 }
 
-printPairs(5)
+printStudentPairs(3)
 
  
